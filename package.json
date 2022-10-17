@@ -14,8 +14,12 @@
     "export": "npm run build:admin-css && npm run build && next export"
   },
   "dependencies": {
+    "@hcaptcha/react-hcaptcha": "^1.4.4",
     "@headlessui/react": "^1.7.2",
     "@heroicons/react": "^1.0.6",
+    "@sendgrid/helpers": "^7.7.0",
+    "@sendgrid/mail": "^7.7.0",
+    "airtable": "^0.11.5",
     "axios": "^0.27.2",
     "formik": "^2.2.9",
     "frontmatter-markdown-loader": "^3.7.0",

@@ -1,30 +1,15 @@
-import ErrorPage from 'next/error';
 import Image from 'next/image';
-
-import PageLayout from '../layouts/PageLayout';
-import { Metadata } from '../layouts/components/Seo';
-
-import Sections from '../components/sections';
 import { NextPage } from 'next';
+
 import OrderForm from '../components/forms/order-form';
 
-interface IndexPageProps {
-  name: string;
-  metadata: Metadata;
-  sections: any[];
-}
-
-const IndexPage: NextPage<IndexPageProps> = ({ name, metadata, sections }) => {
-  // Check if the required data was provided
-  if (!sections?.length) {
-    return <ErrorPage statusCode={500} />;
-  }
-
+const IndexPage: NextPage = () => {
   return (
     <div className="w-full min-h-screen bg-gray-100">
       <div className="max-w-3xl mx-auto bg-white">
         <div className="p-2 mx-auto">
-          <img src="/images/gibby-floral-banner.png" alt="gibby floral banner" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="images/gibby-floral-banner.png" alt="gibby floral banner" />
         </div>
 
         <div className="p-2 mx-auto">
@@ -99,21 +84,5 @@ const IndexPage: NextPage<IndexPageProps> = ({ name, metadata, sections }) => {
     </div>
   );
 };
-
-export async function getStaticProps() {
-  const page = await import('../cms/content/pages/index.md').catch(error => null);
-
-  if (!page) return { props: {} };
-
-  const { name, metadata, sections = [] } = page.attributes;
-
-  return {
-    props: {
-      name,
-      metadata,
-      sections,
-    },
-  };
-}
 
 export default IndexPage;

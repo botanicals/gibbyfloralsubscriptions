@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Formik, Form, FormikHelpers } from 'formik';
 
-// import HCaptcha from '@hcaptcha/react-hcaptcha';
+import HCaptcha from '@hcaptcha/react-hcaptcha';
 
 import { OrderFormSchema } from '../../utils/schemas/order-form-schema';
 
@@ -81,49 +81,50 @@ const initialValues: OrderFormValues = {
 
 const OrderForm: React.FC<OrderFormProps> = () => {
   const [alert, setAlert] = useState<AlertProps | null>(null);
-  // const [captchaAlert, setCaptchaAlert] = useState<AlertProps | null>(null);
-  // const [token, setToken] = useState('');
+  const [captchaAlert, setCaptchaAlert] = useState<AlertProps | null>(null);
+  const [token, setToken] = useState('');
 
   const [submitted, setSubmitted] = useState(false);
 
-  // const recaptchaResponse = (token: string) => {
-  //   if (token) {
-  //     setToken(token);
-  //     setCaptchaAlert(null);
-  //   }
-  // };
+  const recaptchaResponse = (token: string) => {
+    if (token) {
+      setToken(token);
+      setCaptchaAlert(null);
+    }
+  };
 
   const handleSubmit = async (values: OrderFormValues, actions: FormikHelpers<OrderFormValues>) => {
     // Verify reCaptcha response
-    // if (!token) {
-    //   setCaptchaAlert({ status: 'alert', message: 'Please validate your submission by checking the box above.' });
-    //   actions.setSubmitting(false);
-    //   return;
-    // }
+    if (!token) {
+      setCaptchaAlert({ status: 'alert', message: 'Please validate your submission by checking the box above.' });
+      actions.setSubmitting(false);
+      return;
+    }
     // Send post request to submit an order
-    // const response = await fetch('/api/place-order', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({
-    //     ...values,
-    //     captchaToken: '',
-    //   }),
-    // });
-    // const { success, message, data } = await response.json();
-    // console.log('Response from order form page:', { success, message, data });
-    // if (!success) {
-    //   // setAlert({ status: 'alert', message, link: { text: '801-392-8522', href: 'tel:8013928522', external: true } });
-    //   actions.setSubmitting(false);
-    //   return;
-    // }
-    // // Display success message and reset the form
-    // // setAlert({ status: 'success', message, link: data?.metadata?.confirmationEmailSent ? undefined : { text: '801-392-8522', href: 'tel:8013928522', external: true } });
-    // actions.resetForm();
+    const response = await fetch('/api/place-order', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        ...values,
+        captchaToken: token,
+      }),
+    });
 
-    console.log('Form Submitted:', values);
+    const { success, message, data } = await response.json();
 
+    console.log('Response from order form page:', { success, message, data });
+
+    if (!success) {
+      // setAlert({ status: 'alert', message, link: { text: '801-392-8522', href: 'tel:8013928522', external: true } });
+      actions.setSubmitting(false);
+      return;
+    }
+
+    // Display success message and reset the form
+    // setAlert({ status: 'success', message, link: data?.metadata?.confirmationEmailSent ? undefined : { text: '801-392-8522', href: 'tel:8013928522', external: true } });
+    actions.resetForm();
     setSubmitted(true);
   };
 
@@ -213,11 +214,11 @@ const OrderForm: React.FC<OrderFormProps> = () => {
           </FormGroup>
 
           <div className="px-8 mt-2 space-y-4">
-            {/* <HCaptcha sitekey={process.env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY!} onVerify={recaptchaResponse} /> */}
+            <HCaptcha sitekey={process.env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY!} onVerify={recaptchaResponse} />
 
             {alert && <Alert status={alert.status} message={alert.message} link={alert.link} />}
             {JSON.stringify(errors) !== '{}' && <Alert status="alert" message="Invalid fields. Please fill out each field correctly before submitting your order." />}
-            {/* {captchaAlert && <Alert status={captchaAlert.status} message={captchaAlert.message} link={captchaAlert.link} />} */}
+            {captchaAlert && <Alert status={captchaAlert.status} message={captchaAlert.message} link={captchaAlert.link} />}
 
             <SubmitButton submitting={isSubmitting} submitText="Submit my Order" />
           </div>
