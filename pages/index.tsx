@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import { NextPage } from 'next';
 
-import PageLayout from '../layouts/PageLayout';
+import PageLayout from '../layouts/page-layout';
 
-import OrderForm from '../components/forms/order-form';
+import OrderForm from '../components/order-form';
 
 const IndexPage: NextPage = () => {
   return (

@@ -7,7 +7,7 @@ import { verifyCaptchaToken } from '../../lib/hcaptcha';
 
 import { DynamicTemplates } from '../../utils/maps';
 
-import { OrderFormValues } from '../../components/forms/order-form';
+import { OrderFormValues } from '../../components/order-form';
 
 type ResponseData = {
   success: boolean;

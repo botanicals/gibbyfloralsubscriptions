@@ -1,7 +1,7 @@
 import { Field, ErrorMessage, useField } from 'formik';
 import { ExclamationCircleIcon } from '@heroicons/react/outline';
 
-import classNames from '../../../utils/class-names';
+import classNames from '../../utils/class-names';
 
 interface InputProps {
   label: string;

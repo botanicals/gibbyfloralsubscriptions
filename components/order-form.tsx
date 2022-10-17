@@ -3,15 +3,15 @@ import { Formik, Form, FormikHelpers } from 'formik';
 
 import HCaptcha from '@hcaptcha/react-hcaptcha';
 
-import { OrderFormSchema } from '../../utils/schemas/order-form-schema';
+import { OrderFormSchema } from '../utils/schemas/order-form-schema';
 
-import Alert, { AlertProps } from '../alert';
+import Alert, { AlertProps } from './alert';
 
-import FormGroup from './elements/form-group';
-import Input from './elements/input';
-import Textarea from './elements/textarea';
-import Checkbox from './elements/checkbox';
-import SubmitButton from './elements/submit-button';
+import FormGroup from './form-elements/form-group';
+import Input from './form-elements/input';
+import Textarea from './form-elements/textarea';
+import Checkbox from './form-elements/checkbox';
+import SubmitButton from './form-elements/submit-button';
 
 interface OrderFormProps {}
 
@@ -117,13 +117,11 @@ const OrderForm: React.FC<OrderFormProps> = () => {
     console.log('Response from order form page:', { success, message, data });
 
     if (!success) {
-      // setAlert({ status: 'alert', message, link: { text: '801-392-8522', href: 'tel:8013928522', external: true } });
       actions.setSubmitting(false);
       return;
     }
 
     // Display success message and reset the form
-    // setAlert({ status: 'success', message, link: data?.metadata?.confirmationEmailSent ? undefined : { text: '801-392-8522', href: 'tel:8013928522', external: true } });
     actions.resetForm();
     setSubmitted(true);
   };
@@ -223,10 +221,10 @@ const OrderForm: React.FC<OrderFormProps> = () => {
             <SubmitButton submitting={isSubmitting} submitText="Submit my Order" />
           </div>
 
-          <p>Values</p>
+          {/* <p>Values</p>
           {JSON.stringify(values, null, 2)}
           <p>Errors</p>
-          {JSON.stringify(errors, null, 2)}
+          {JSON.stringify(errors, null, 2)} */}
         </Form>
       )}
     </Formik>

@@ -1,6 +1,6 @@
 import { Field, ErrorMessage, useField } from 'formik';
 
-import classNames from '../../../utils/class-names';
+import classNames from '../../utils/class-names';
 
 interface TextareaProps {
   label: string;
