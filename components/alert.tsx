@@ -1,7 +1,7 @@
 import { InformationCircleIcon } from '@heroicons/react/solid';
 import Link from 'next/link';
 
-import classNames from '../../utils/class-names';
+import classNames from '../utils/class-names';
 
 export interface AlertProps {
   status?: 'info' | 'alert' | 'warn' | 'success';

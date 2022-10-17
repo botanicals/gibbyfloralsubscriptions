@@ -5,7 +5,7 @@ import HCaptcha from '@hcaptcha/react-hcaptcha';
 
 import { OrderFormSchema } from '../../utils/schemas/order-form-schema';
 
-import Alert, { AlertProps } from '../elements/alert';
+import Alert, { AlertProps } from '../alert';
 
 import FormGroup from './elements/form-group';
 import Input from './elements/input';

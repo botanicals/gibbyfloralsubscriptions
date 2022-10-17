@@ -1,28 +1,25 @@
 import { ReactNode } from 'react';
 
-import Seo, { Metadata } from './components/Seo';
-import Banner from './components/Banner';
-import Header from './components/Header';
-import Footer from './components/Footer';
-
 interface PageLayoutProps {
-  seo: Metadata;
   children: ReactNode;
 }
 
-const PageLayout: React.FC<PageLayoutProps> = ({ seo, children }) => {
+const PageLayout: React.FC<PageLayoutProps> = ({ children }) => {
   return (
-    <>
-      <Seo metadata={seo} />
-      <div className="flex flex-col justify-between min-h-screen text-gray-800 bg-white">
-        <div>
-          <Banner />
-          <Header />
-          <main>{children}</main>
+    <div className="w-full min-h-screen bg-gray-100">
+      <div className="max-w-3xl mx-auto bg-white">
+        <div className="p-2 mx-auto">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/assets/gibby-floral-banner.png" alt="gibby floral banner" />
         </div>
-        <Footer />
+
+        <div className="p-2 mx-auto">{children}</div>
+
+        <div className="p-2 mx-auto">
+          <p className="text-sm text-center text-gray-600">&copy; {new Date().getFullYear()} Gibby Floral. All rights reserved.</p>
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 

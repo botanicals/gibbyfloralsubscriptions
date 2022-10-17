@@ -1,66 +1,25 @@
 import Head from 'next/head';
-import { useEffect } from 'react';
-import Script from 'next/script';
-import { useRouter } from 'next/router';
 import { AppProps } from 'next/app';
 
 import { DefaultSeo } from 'next-seo';
 
-import * as gtag from '../lib/gtag';
-
-import { attributes as global } from '../cms/content/settings/global.md';
-
 import '../styles/tailwind.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const router = useRouter();
-
-  useEffect(() => {
-    const handleRouteChange = (url: any) => {
-      gtag.pageview(url);
-    };
-    router.events.on('routeChangeComplete', handleRouteChange);
-    return () => {
-      router.events.off('routeChangeComplete', handleRouteChange);
-    };
-  }, [router.events]);
-
   return (
     <>
       <Head>
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
+
       {/* Global site metadata */}
       <DefaultSeo
         // titleTemplate={`%s | ${global.siteTitle}`}
-        defaultTitle={global.defaultMetadata.title}
-        description={global.defaultMetadata.description}
+        defaultTitle="Gibby Floral Subscriptions"
+        description="Welcome the Gibby Floral BE HER HERO subscription service. Designed to make sure you don't miss those important times of the year for the one you love!"
         openGraph={{
           type: 'website',
-          site_name: global.siteTitle,
-        }}
-        twitter={{
-          cardType: global.defaultMetadata.twitterCardType,
-          handle: global.defaultMetadata.twitterUsername,
-        }}
-      />
-      {/* Netlify CMS Script Tag */}
-      <Script strategy="beforeInteractive" src="https://identity.netlify.com/v1/netlify-identity-widget.js" />
-
-      {/* Global Site Tag (gtag.js) - Google Analytics */}
-      <Script strategy="afterInteractive" src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`} />
-      <Script
-        id="google-analytics-script"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${gtag.GA_TRACKING_ID}', {
-              page_path: window.location.pathname,
-            });
-          `,
+          site_name: 'Gibby Floral Subscriptions',
         }}
       />
 
