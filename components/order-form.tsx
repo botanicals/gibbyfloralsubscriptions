@@ -145,6 +145,19 @@ const OrderForm: React.FC<OrderFormProps> = () => {
             message="Choose up to TWO more occasions. Valentine's Day is already included in your subscription."
             note="PLEASE NOTE: If the date of occasion you select falls on a Sunday, we will deliver the Saturday prior."
           >
+            {/* Valentine' Day */}
+            <div className="relative flex items-start my-2">
+              <div className="flex items-center h-5">
+                <input type="checkbox" id="valentines-day" name="valentines-day" className="w-4 h-4 border-gray-600 rounded text-primary focus:ring-primary" checked />
+              </div>
+              <div className="ml-3 text-sm">
+                <label htmlFor="valentines-day" className="font-bold text-primary">
+                  Valentine&apos;s Day
+                </label>
+                {/* <p className="text-xs text-primary">{description}</p> */}
+              </div>
+            </div>
+
             {/* Anniversary */}
             <Checkbox label="Anniversary" name="anniversary" />
             {values.anniversary ? <Input label="Anniversary Date" name="anniversaryDate" type="date" /> : null}

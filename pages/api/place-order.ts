@@ -216,7 +216,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
   ${process.env.NODE_ENV === 'development' ? 'DEVELOPMENT MODE' : ''}
 
-  An order was placed on gibbyfloral.com.
+  An order was placed on gibbyfloralsubscriptions.com.
 
   Order Number: ${templateData.orderNumber}
 
