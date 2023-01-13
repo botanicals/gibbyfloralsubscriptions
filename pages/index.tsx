@@ -8,6 +8,10 @@ import OrderForm from '../components/order-form';
 const IndexPage: NextPage = () => {
   return (
     <PageLayout>
+      <div className="p-2 mx-auto">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/assets/be-her-hero-banner.jpeg" className="w-full" alt="be her hero banner" />
+      </div>
       <h1 className="my-8 text-center uppercase font-base text-primary text-7xl">Be her hero!</h1>
       <div className="px-8 py-4 space-y-4 text-xl text-center text-primary">
         <p>
@@ -23,8 +27,9 @@ const IndexPage: NextPage = () => {
         </p>
       </div>
       <div className="my-8 text-center text-primary">
+        <p className="font-bold">THREE BOUQUETS WITH DELIVERY FOR ONLY</p>
         <p className="text-7xl">$299</p>
-        <p className="font-bold">Includes Deliver within Weber County</p>
+        <p className="font-bold">Includes Delivery within Weber County</p>
         <p className="font-bold">($375 value)</p>
 
         <div className="grid gap-4 my-8 sm:grid-cols-3">
