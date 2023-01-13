@@ -15,6 +15,12 @@ type ResponseData = {
   data?: any;
 };
 
+interface TemplateData extends OrderFormValues {
+  captchaToken: string;
+  orderPlacedOn: string;
+  orderNumber: string;
+}
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse<ResponseData>) {
   // If not a post request, send 405 Method Not Allowed response
   if (req.method !== 'POST') {
@@ -42,11 +48,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
   const formValues: OrderFormValues = req.body;
 
-  const templateData = {
+  const templateData: TemplateData = {
     ...formValues,
     captchaToken: '', // Already used, don't need to save it
     orderPlacedOn: currentDate,
     orderNumber: orderNumber.toUpperCase(),
+    birthdayDate: formValues.birthdayDate
+      ? new Date(formValues.birthdayDate).toLocaleDateString(undefined, { timeZone: 'UTC', month: 'long', day: '2-digit', year: 'numeric' })
+      : formValues.birthdayDate,
+    anniversaryDate: formValues.anniversaryDate
+      ? new Date(formValues.anniversaryDate).toLocaleDateString(undefined, { timeZone: 'UTC', month: 'long', day: '2-digit', year: 'numeric' })
+      : formValues.anniversaryDate,
   };
 
   // Save template data to AirTable for future analysis and use
@@ -108,7 +120,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
       name: 'Gibby Floral Admin',
     },
     templateId: DynamicTemplates.SubscriptionSubmission,
-    dynamicTemplateData: templateData,
+    dynamicTemplateData: templateData as unknown as { [key: string]: string | number | boolean },
   });
 
   const orderSuccess = await order.send();
@@ -182,7 +194,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
       name: 'Gibby Floral Orders',
     },
     templateId: DynamicTemplates.SubscriptionConfirmation,
-    dynamicTemplateData: templateData,
+    dynamicTemplateData: templateData as unknown as { [key: string]: string | number | boolean },
   });
 
   const confirmationSuccess = await confirmation.send();
