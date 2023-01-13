@@ -94,6 +94,15 @@ const OrderForm: React.FC<OrderFormProps> = () => {
   };
 
   const handleSubmit = async (values: OrderFormValues, actions: FormikHelpers<OrderFormValues>) => {
+    // Make sure they only selected two occasions
+    if (values.anniversary && values.birthday && values.mothersday) {
+      setAlert({ status: 'alert', message: 'You may only select two additional occasions for your subcriptions.' });
+      actions.setSubmitting(false);
+      return;
+    } else {
+      setAlert(null);
+    }
+
     // Verify reCaptcha response
     if (!token) {
       setCaptchaAlert({ status: 'alert', message: 'Please validate your submission by checking the box above.' });
@@ -140,24 +149,26 @@ const OrderForm: React.FC<OrderFormProps> = () => {
       {({ values, errors, isSubmitting }) => (
         <Form name="Be Her Hero Subscription Form">
           {/* Select Occassions */}
-          <FormGroup
-            heading="Choose Occassions"
-            message="Choose up to TWO more occasions. Valentine's Day is already included in your subscription."
-            note="PLEASE NOTE: If the date of occasion you select falls on a Sunday, we will deliver the Saturday prior."
-          >
+          <FormGroup heading="Valentine's Day" message="Valentine's Day is already included in your subscription.">
             {/* Valentine' Day */}
             <div className="relative flex items-start my-2">
               <div className="flex items-center h-5">
-                <input type="checkbox" id="valentines-day" name="valentines-day" className="w-4 h-4 border-gray-600 rounded text-primary focus:ring-primary" checked />
+                <input type="checkbox" id="valentines-day" name="valentines-day" className="w-4 h-4 border-gray-600 rounded text-primary focus:ring-primary" checked readOnly />
               </div>
               <div className="ml-3 text-sm">
                 <label htmlFor="valentines-day" className="font-bold text-primary">
-                  Valentine&apos;s Day
+                  Valentine&apos;s Day (Included in your subscription)
                 </label>
                 {/* <p className="text-xs text-primary">{description}</p> */}
               </div>
             </div>
+          </FormGroup>
 
+          <FormGroup
+            heading="Choose Occassions"
+            message="Now, choose TWO more occasions below to complete your subscription."
+            note="PLEASE NOTE: If the date of occasion you select falls on a Sunday, we will deliver the Saturday prior."
+          >
             {/* Anniversary */}
             <Checkbox label="Anniversary" name="anniversary" />
             {values.anniversary ? <Input label="Anniversary Date" name="anniversaryDate" type="date" /> : null}
