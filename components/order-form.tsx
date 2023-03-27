@@ -22,6 +22,7 @@ export interface OrderFormValues {
   birthday: boolean;
   birthdayDate?: string;
   mothersday: boolean;
+  valentinesday: boolean;
 
   // Customer Information
   customerFirstName: string;
@@ -53,7 +54,8 @@ const initialValues: OrderFormValues = {
   anniversaryDate: '',
   birthday: false,
   birthdayDate: '',
-  mothersday: false,
+  mothersday: true,
+  valentinesday: false,
 
   // Your Information
   customerFirstName: '',
@@ -149,17 +151,17 @@ const OrderForm: React.FC<OrderFormProps> = () => {
       {({ values, errors, isSubmitting }) => (
         <Form name="Be Her Hero Subscription Form">
           {/* Select Occassions */}
-          <FormGroup heading="Valentine's Day" message="Valentine's Day is already included in your subscription.">
-            {/* Valentine' Day */}
+          <FormGroup heading="Mother's Day" message="Mother's Day is already included in your subscription.">
+            {/* Mother's Day */}
             <div className="relative flex items-start my-2">
               <div className="flex items-center h-5">
-                <input type="checkbox" id="valentines-day" name="valentines-day" className="w-4 h-4 border-gray-600 rounded text-primary focus:ring-primary" checked readOnly />
+                <input type="checkbox" id="mothers-day" name="mothers-day" className="w-4 h-4 border-gray-600 rounded text-primary focus:ring-primary" checked readOnly />
               </div>
               <div className="ml-3 text-sm">
-                <label htmlFor="valentines-day" className="font-bold text-primary">
-                  Valentine&apos;s Day (Included in your subscription)
+                <label htmlFor="mothers-day" className="font-bold text-primary">
+                  Mother&apos;s Day - Sunday May 24, 2023 (Included in your subscription)
                 </label>
-                {/* <p className="text-xs text-primary">{description}</p> */}
+                <p className="text-sm text-primary">Note: Mother&apos;s Day orders will be delivered on Saturday, May 23, 2023</p>
               </div>
             </div>
           </FormGroup>
@@ -170,15 +172,15 @@ const OrderForm: React.FC<OrderFormProps> = () => {
             note="PLEASE NOTE: If the date of occasion you select falls on a Sunday, we will deliver the Saturday prior."
           >
             {/* Anniversary */}
-            <Checkbox label="Anniversary" name="anniversary" />
+            <Checkbox label="Anniversary (Select date)" name="anniversary" />
             {values.anniversary ? <Input label="Anniversary Date" name="anniversaryDate" type="date" /> : null}
 
             {/* Birthday */}
-            <Checkbox label="Birthday" name="birthday" />
+            <Checkbox label="Birthday (Select date)" name="birthday" />
             {values.birthday ? <Input label="Birthday Date" name="birthdayDate" type="date" /> : null}
 
-            {/* Mother's Day */}
-            <Checkbox label="Mother's Day (Sunday May 24, 2023)" name="mothersday" description="Note: Mother's Day orders will be delivered on Saturday, May 23rd." />
+            {/* Valentine's Day */}
+            <Checkbox label="Valentine's Day (Wednesday February 14, 2024)" name="valentinesday" />
           </FormGroup>
 
           {/* Customer Information */}
@@ -222,17 +224,17 @@ const OrderForm: React.FC<OrderFormProps> = () => {
             heading="Note Cards"
             message="We recommend keeping your message simple. Your sentiments will be included in all of your HERO deliveries. If you’re not sure what to say, not to worry! When we call you to confirm your BE HER HERO subscription, we’ll help you!"
           >
-            {/* Valentine's Day Note */}
-            <Textarea label="Valentine's Day" name="valentinesdayNote" />
+            {/* Mother's Day Note */}
+            <Textarea label="Mother's Day" name="mothersdayNote" />
 
             {/* Anniversary Note */}
             {values.anniversary ? <Textarea label="Anniversary" name="anniversaryNote" /> : null}
 
-            {/* Mother's Day Note */}
-            {values.mothersday ? <Textarea label="Mother's Day" name="mothersdayNote" /> : null}
-
             {/* Birthday Note */}
             {values.birthday ? <Textarea label="Birthday" name="birthdayNote" /> : null}
+
+            {/* Valentine's Day Note */}
+            {values.valentinesday ? <Textarea label="Valentine's Day" name="valentinesdayNote" /> : null}
           </FormGroup>
 
           <div className="px-8 mt-2 space-y-4">

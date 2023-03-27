@@ -23,7 +23,7 @@ const IndexPage: NextPage = () => {
           <strong className="text-3xl font-bold">BE HER HERO!</strong>
         </p>
         <p className="uppercase">
-          Your <strong>BE HER HERO</strong> subscription includes two occassions plus Valentine&apos;s Day
+          Your <strong>BE HER HERO</strong> subscription includes two occassions plus Mother&apos;s Day
         </p>
       </div>
       <div className="my-8 text-center text-primary">
@@ -35,23 +35,15 @@ const IndexPage: NextPage = () => {
         <div className="grid gap-4 my-8 sm:grid-cols-3">
           <div></div>
           <div>
-            <Image src="/images/valentines-day.jpg" alt="valentine's day bouquet" width="600" height="800" />
-            <div className="p-2 mt-1 text-center text-white bg-primary">
-              <p className="text-xl font-bold uppercase">Valentine&apos;s Day</p>
-              <p>Included in your subscription: One dozen premium red roses with a vase</p>
-            </div>
-          </div>
-          <div></div>
-        </div>
-        <div className="grid items-stretch gap-4 my-8 sm:grid-cols-3">
-          <div>
             <Image src="/images/mothers-day.jpg" alt="mother's day bouquet" width="600" height="800" />
             <div className="p-2 mt-1 text-center text-white bg-primary">
               <p className="text-xl font-bold uppercase">Mother&apos;s Day</p>
               <p>Included in your subscription: Seasonal flowers with a keepsake container</p>
             </div>
           </div>
-
+          <div></div>
+        </div>
+        <div className="grid items-stretch gap-4 my-8 sm:grid-cols-3">
           <div>
             <Image src="/images/anniversary.jpg" alt="anniversary bouquet" width="600" height="800" />
             <div className="p-2 mt-1 text-center text-white bg-primary">
@@ -67,9 +59,17 @@ const IndexPage: NextPage = () => {
               <p>Included in your subscription: Seasonal flowers with a vase</p>
             </div>
           </div>
+
+          <div>
+            <Image src="/images/valentines-day.jpg" alt="valentine's day bouquet" width="600" height="800" />
+            <div className="p-2 mt-1 text-center text-white bg-primary">
+              <p className="text-xl font-bold uppercase">Valentine&apos;s Day</p>
+              <p>Included in your subscription: One dozen premium red roses with a vase</p>
+            </div>
+          </div>
         </div>
 
-        <p className="text-xl font-bold">Valentine&apos;s Day INCLUDED in your subscription.</p>
+        <p className="text-xl font-bold">Mother&apos;s Day INCLUDED in your subscription.</p>
       </div>
       <div className="my-8">
         <div className="px-2 py-1 text-center text-white uppercase bg-primary">
