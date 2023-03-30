@@ -97,7 +97,7 @@ const OrderForm: React.FC<OrderFormProps> = () => {
 
   const handleSubmit = async (values: OrderFormValues, actions: FormikHelpers<OrderFormValues>) => {
     // Make sure they only selected two occasions
-    if (values.anniversary && values.birthday && values.mothersday) {
+    if (values.anniversary && values.birthday && values.mothersday && values.valentinesday) {
       setAlert({ status: 'alert', message: 'You may only select two additional occasions for your subcriptions.' });
       actions.setSubmitting(false);
       return;
