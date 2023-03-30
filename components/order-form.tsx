@@ -159,9 +159,9 @@ const OrderForm: React.FC<OrderFormProps> = () => {
               </div>
               <div className="ml-3 text-sm">
                 <label htmlFor="mothers-day" className="font-bold text-primary">
-                  Mother&apos;s Day - Sunday May 24, 2023 (Included in your subscription)
+                  Mother&apos;s Day - Sunday May 14, 2023 (Included in your subscription)
                 </label>
-                <p className="text-sm text-primary">Note: Mother&apos;s Day orders will be delivered on Saturday, May 23, 2023</p>
+                <p className="text-sm text-primary">Note: Mother&apos;s Day orders will be delivered on Saturday, May 13, 2023</p>
               </div>
             </div>
           </FormGroup>

@@ -10,7 +10,7 @@ const IndexPage: NextPage = () => {
     <PageLayout>
       <div className="p-2 mx-auto">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/assets/be-her-hero-banner.jpeg" className="w-full" alt="be her hero banner" />
+        <img src="/assets/be-her-hero-banner-mothers-day.jpeg" className="w-full" alt="be her hero banner" />
       </div>
       <h1 className="my-8 text-center uppercase font-base text-primary text-7xl">Be her hero!</h1>
       <div className="px-8 py-4 space-y-4 text-xl text-center text-primary">
