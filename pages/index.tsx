@@ -29,13 +29,16 @@ const IndexPage: NextPage = () => {
       <div className="my-8 text-center text-primary">
         <p className="font-bold">THREE BOUQUETS WITH DELIVERY FOR ONLY</p>
         <p className="text-7xl">$299</p>
-        <p className="font-bold">Includes Delivery within Weber County</p>
+        <p className="font-bold">Includes Delivery within Weber, Davis, &amp; Morgan Counties</p>
         <p className="font-bold">($375 value)</p>
+        <p className="mt-2 font-bold">
+          <em>At this time BE HER HERO is NOT available to Gibby Floral South customers.</em>
+        </p>
 
         <div className="grid gap-4 my-8 sm:grid-cols-3">
           <div></div>
           <div>
-            <Image src="/images/valentines-day.jpg" alt="valentine's day bouquet" width="600" height="800" />
+            <Image src="/images/valentines-day-2.jpg" alt="valentine's day bouquet" width="600" height="800" />
             <div className="p-2 mt-1 text-center text-white bg-primary">
               <p className="text-xl font-bold uppercase">Valentine&apos;s Day</p>
               <p>Included in your subscription: One dozen premium red roses with a vase</p>
