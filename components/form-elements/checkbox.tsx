@@ -1,33 +1,31 @@
-import { Field, ErrorMessage, useField } from 'formik';
+import { Dispatch, SetStateAction } from 'react';
 import classNames from '../../utils/class-names';
 
 interface CheckboxProps {
   label: string;
-  description?: string;
   name: string;
+  value: boolean;
+  setValue: Dispatch<SetStateAction<boolean>>;
+  readOnly?: boolean;
+  disabled?: boolean;
 }
 
-const Checkbox: React.FC<CheckboxProps> = ({ label, description, name }) => {
-  const [field, meta, helpers] = useField(name);
-
+const Checkbox: React.FC<CheckboxProps> = ({ label, name, value, setValue, readOnly, disabled }) => {
   return (
-    <div className="relative flex items-start my-2">
-      <div className="flex items-center h-5">
-        <Field
-          as="input"
-          type="checkbox"
-          id={name}
-          name={name}
-          className={classNames('w-4 h-4  rounded', meta.error && meta.touched ? 'border-red-500 text-red-500 focus:ring-red-500' : 'border-gray-600 text-primary focus:ring-primary')}
-        />
-      </div>
-      <div className="ml-3 text-sm">
-        <label htmlFor={name} className="font-bold text-primary">
-          {label}
-        </label>
-        <p className="text-xs text-primary">{description}</p>
-        <ErrorMessage name={name}>{message => <p className="mt-2 text-sm text-red-600">{message}</p>}</ErrorMessage>
-      </div>
+    <div className="flex items-center w-full">
+      <input
+        type="checkbox"
+        id={name}
+        name={name}
+        className={classNames('w-5 h-5', disabled ? 'border-gray-500 text-gray-500 forcus:ring-gray-500' : ' border-secondary text-secondary focus:ring-secondary')}
+        checked={value}
+        onChange={() => setValue(value => !value)}
+        readOnly={readOnly}
+        disabled={disabled}
+      />
+      <label htmlFor={name} className={classNames('ml-3 text-xl font-bold uppercase', disabled ? 'text-gray-500' : 'text-secondary')}>
+        {label}
+      </label>
     </div>
   );
 };

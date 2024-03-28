@@ -59,6 +59,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     anniversaryDate: formValues.anniversaryDate
       ? new Date(formValues.anniversaryDate).toLocaleDateString(undefined, { timeZone: 'UTC', month: 'long', day: '2-digit', year: 'numeric' })
       : formValues.anniversaryDate,
+    occasion4Date: formValues.occasion4Date
+      ? new Date(formValues.occasion4Date).toLocaleDateString(undefined, { timeZone: 'UTC', month: 'long', day: '2-digit', year: 'numeric' })
+      : formValues.occasion4Date,
+    occasion5Date: formValues.occasion5Date
+      ? new Date(formValues.occasion5Date).toLocaleDateString(undefined, { timeZone: 'UTC', month: 'long', day: '2-digit', year: 'numeric' })
+      : formValues.occasion5Date,
   };
 
   // Save template data to AirTable for future analysis and use

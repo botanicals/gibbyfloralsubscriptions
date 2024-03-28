@@ -13,6 +13,24 @@ export const OrderFormSchema = Yup.object().shape({
     then: schema => schema.required('Required'),
   }),
   mothersday: Yup.boolean().notRequired(),
+  occasion4: Yup.boolean().notRequired(),
+  occasion4Date: Yup.string().when('occasion4', {
+    is: true,
+    then: schema => schema.required('Required'),
+  }),
+  occasion4Type: Yup.string().when('occasion4', {
+    is: true,
+    then: schema => schema.required('Required'),
+  }),
+  occasion5: Yup.boolean().notRequired(),
+  occasion5Date: Yup.string().when('occasion5', {
+    is: true,
+    then: schema => schema.required('Required'),
+  }),
+  occasion5Type: Yup.string().when('occasion5', {
+    is: true,
+    then: schema => schema.required('Required'),
+  }),
 
   // Customer Information
   customerFirstName: Yup.string().min(2, 'Must be more than 2 characters').max(70, 'Must be less than 70 characters').required('Required'),
@@ -39,4 +57,6 @@ export const OrderFormSchema = Yup.object().shape({
   mothersdayNote: Yup.string().notRequired(),
   anniversaryNote: Yup.string().notRequired(),
   birthdayNote: Yup.string().notRequired(),
+  occasion4Note: Yup.string().notRequired(),
+  occasion5Note: Yup.string().notRequired(),
 });
