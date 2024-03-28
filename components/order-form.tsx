@@ -34,9 +34,11 @@ export interface OrderFormValues {
   occasion4: boolean;
   occasion4Date?: string;
   occasion4Type?: string;
+  occasion4Color?: string;
   occasion5: boolean;
   occasion5Date?: string;
   occasion5Type?: string;
+  occasion5Color?: string;
 
   // Customer Information
   customerFirstName: string;
@@ -171,9 +173,11 @@ const OrderForm: React.FC<OrderFormProps> = ({ mothersday, valentinesday, birthd
           occasion4: occasion4,
           occasion4Date: '',
           occasion4Type: '',
+          occasion4Color: '',
           occasion5: occasion5,
           occasion5Date: '',
           occasion5Type: '',
+          occasion5Color: '',
 
           // Your Information
           customerFirstName: '',
@@ -216,14 +220,14 @@ const OrderForm: React.FC<OrderFormProps> = ({ mothersday, valentinesday, birthd
               {/* Mother's Day */}
               {values.mothersday ? (
                 <h5 className="flex items-center mt-6 mb-2 font-bold text-primary">
-                  <CheckCircleIcon className="w-5 h-5 mr-2" /> Mother&apos;s Day (Sunday May 12, 2024)
+                  <CheckCircleIcon className="w-5 h-5 mr-2" /> Mother&apos;s Day (Sunday, May 12, 2024)
                 </h5>
               ) : null}
 
               {/* Valentine's Day */}
               {values.valentinesday ? (
                 <h5 className="flex items-center mt-6 mb-2 font-bold text-primary">
-                  <CheckCircleIcon className="w-5 h-5 mr-2" /> Valentine&apos;s Day (Friday February 14, 2025)
+                  <CheckCircleIcon className="w-5 h-5 mr-2" /> Valentine&apos;s Day (Friday, February 14, 2025)
                 </h5>
               ) : null}
 
@@ -255,6 +259,7 @@ const OrderForm: React.FC<OrderFormProps> = ({ mothersday, valentinesday, birthd
                   </h5>
                   <Input label="Occasion Date" name="occasion4Date" type="date" />
                   <Input label="Type of Occasion" name="occasion4Type" type="text" />
+                  <Input label="Request a Favorite Color" name="occasion4Color" type="text" />
                 </Fragment>
               ) : null}
 
@@ -266,6 +271,7 @@ const OrderForm: React.FC<OrderFormProps> = ({ mothersday, valentinesday, birthd
                   </h5>
                   <Input label="Occasion Date" name="occasion5Date" type="date" />
                   <Input label="Type of Occasion" name="occasion5Type" type="text" />
+                  <Input label="Request a Favorite Color" name="occasion5Color" type="text" />
                 </Fragment>
               ) : null}
             </FormGroup>
