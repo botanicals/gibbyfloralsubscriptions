@@ -1,7 +1,7 @@
 import * as Yup from 'yup'; // Yup documentation can be found here: https://github.com/jquense/yup
 
 export const OrderFormSchema = Yup.object().shape({
-  // Choose Occassions
+  // Choose Occasions
   anniversary: Yup.boolean().notRequired(),
   anniversaryDate: Yup.string().when('anniversary', {
     is: true,

@@ -33,7 +33,7 @@ const IndexPage: NextPage = () => {
     <PageLayout>
       <div className="p-2 mx-auto">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/assets/be-her-hero-banner-three-or-five.jpg" className="w-full" alt="be her hero banner" />
+        <img src="/assets/be-her-hero-banner-three-or-five.jpeg" className="w-full" alt="be her hero banner" />
       </div>
       <h1 className="my-8 text-center uppercase font-base text-primary text-7xl">Be her hero!</h1>
       <div className="px-8 py-4 space-y-4 text-xl text-center text-primary">
@@ -52,7 +52,7 @@ const IndexPage: NextPage = () => {
           <Image src="/assets/three.jpg" className="w-[150px] h-auto" width={150} height={150} alt="three" />
 
           <div className="text-center text-primary">
-            <p className="font-bold">YOUR BE HER HERO 3 BOUQUETS includes Mother&apos;s Day and two more occassions.</p>
+            <p className="font-bold">YOUR BE HER HERO 3 BOUQUETS includes Mother&apos;s Day and two more occasions.</p>
             <p className="text-7xl">$299</p>
             <p className="font-bold">($375 value)</p>
             <p className="italic font-bold">Includes Delivery within Weber, Davis, &amp; Morgan Counties</p>
@@ -74,7 +74,7 @@ const IndexPage: NextPage = () => {
         <div className="flex flex-col items-center justify-start md:col-span-3">
           <Image src="/assets/five.jpg" className="w-[150px] h-auto" width={150} height={150} alt="five" />
           <div className="text-center text-primary">
-            <p className="font-bold">YOUR BE HER HERO 5 BOUQUETS includes Mother&apos;s Day and four more occassions.</p>
+            <p className="font-bold">YOUR BE HER HERO 5 BOUQUETS includes Mother&apos;s Day and four more occasions.</p>
             <p className="text-7xl">$499</p>
             <p className="font-bold">($575 value)</p>
             <p className="italic font-bold">Includes Delivery within Weber, Davis, &amp; Morgan Counties</p>
