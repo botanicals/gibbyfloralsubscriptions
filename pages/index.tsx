@@ -52,18 +52,18 @@ const IndexPage: NextPage = () => {
           <Image src="/assets/three.jpg" className="w-[150px] h-auto" width={150} height={150} alt="three" />
 
           <div className="text-center text-primary">
-            <p className="font-bold">YOUR BE HER HERO 3 BOUQUETS includes Mother&apos;s Day and two more occasions.</p>
+            <p className="font-bold">YOUR BE HER HERO 3 BOUQUETS includes Mother&apos;s Day (2025) and two more occasions.</p>
             <p className="text-7xl">$299</p>
             <p className="font-bold">($375 value)</p>
             <p className="italic font-bold">Includes Delivery within Weber, Davis, &amp; Morgan Counties</p>
           </div>
 
           <div className="relative flex flex-col items-start w-full my-8 space-y-2">
-            <Checkbox name="motherdays" label="Mother's Day" value={mothersday} setValue={setMothersday} disabled={count() > 3} readOnly />
+            <Checkbox name="motherdays" label="Mother's Day (2025)" value={mothersday} setValue={setMothersday} disabled={count() > 3} readOnly />
             <hr className="w-full my-8 border opacity-25 border-secondary" />
             <Checkbox name="birthday" label="Birthday" value={birthday} setValue={setBirthday} disabled={count() > 3} />
             <Checkbox name="anniversary" label="Anniversary" value={anniversary} setValue={setAnniversary} disabled={count() > 3} />
-            <Checkbox name="valentinesday" label="Valentine's Day" value={valentinesday} setValue={setValentinesday} disabled={count() > 3} />
+            <Checkbox name="valentinesday" label="Valentine's Day (2025)" value={valentinesday} setValue={setValentinesday} disabled={count() > 3} />
           </div>
         </div>
         <div className="flex flex-col items-center justify-start">
@@ -74,18 +74,18 @@ const IndexPage: NextPage = () => {
         <div className="flex flex-col items-center justify-start md:col-span-3">
           <Image src="/assets/five.jpg" className="w-[150px] h-auto" width={150} height={150} alt="five" />
           <div className="text-center text-primary">
-            <p className="font-bold">YOUR BE HER HERO 5 BOUQUETS includes Mother&apos;s Day and four more occasions.</p>
+            <p className="font-bold">YOUR BE HER HERO 5 BOUQUETS includes Mother&apos;s Day (2025) and four more occasions.</p>
             <p className="text-7xl">$499</p>
             <p className="font-bold">($575 value)</p>
             <p className="italic font-bold">Includes Delivery within Weber, Davis, &amp; Morgan Counties</p>
           </div>
 
           <div className="relative flex flex-col items-start w-full my-8 space-y-2">
-            <Checkbox name="motherdays" label="Mother's Day" value={mothersday} setValue={setMothersday} readOnly />
+            <Checkbox name="motherdays" label="Mother's Day (2025)" value={mothersday} setValue={setMothersday} readOnly />
             <hr className="w-full my-8 border opacity-25 border-secondary" />
             <Checkbox name="birthday" label="Birthday" value={birthday} setValue={setBirthday} disabled={!birthday && count() >= 5} />
             <Checkbox name="anniversary" label="Anniversary" value={anniversary} setValue={setAnniversary} disabled={!anniversary && count() >= 5} />
-            <Checkbox name="valentinesday" label="Valentine's Day" value={valentinesday} setValue={setValentinesday} disabled={!valentinesday && count() >= 5} />
+            <Checkbox name="valentinesday" label="Valentine's Day (2025)" value={valentinesday} setValue={setValentinesday} disabled={!valentinesday && count() >= 5} />
             <Checkbox name="subscriberschoice1" label="Subscriber's Choice" value={subscriberChoice1} setValue={setSubscriberChoice1} disabled={!subscriberChoice1 && count() >= 5} />
             <Checkbox name="subscriberschoice2" label="Subscriber's Choice" value={subscriberChoice2} setValue={setSubscriberChoice2} disabled={!subscriberChoice2 && count() >= 5} />
           </div>
@@ -95,13 +95,13 @@ const IndexPage: NextPage = () => {
       <div className="grid gap-4 my-8 sm:grid-cols-3">
         <div className="flex items-center justify-center w-full h-full sm:col-span-2 bg-primary">
           <div className="p-2 text-xl text-center text-white uppercase align-middle sm:text-4xl sm:p-16">
-            <p>Both subscriptions include Mother&apos;s Day</p>
+            <p>Both subscriptions include Mother&apos;s Day (2025)</p>
           </div>
         </div>
         <div className="flex flex-col">
           <Image src="/images/mothers-day.jpg" alt="mother's day bouquet" width="600" height="800" />
           <div className="p-2 mt-2 text-center text-white bg-primary grow">
-            <p className="text-xl font-bold uppercase">Mother&apos;s Day</p>
+            <p className="text-xl font-bold uppercase">Mother&apos;s Day (2025)</p>
             <p>Included in your subscription: Seasonal flowers with a keepsake container</p>
           </div>
         </div>
@@ -127,7 +127,7 @@ const IndexPage: NextPage = () => {
         <div className="flex flex-col">
           <Image src="/images/valentines-day-2.jpg" alt="valentine's day bouquet" width="600" height="800" />
           <div className="p-2 mt-2 text-center text-white bg-primary grow">
-            <p className="text-xl font-bold uppercase">Valentine&apos;s Day</p>
+            <p className="text-xl font-bold uppercase">Valentine&apos;s Day (2025)</p>
             <p>Included in your subscription: One dozen premium red roses with a vase</p>
           </div>
         </div>

@@ -220,14 +220,14 @@ const OrderForm: React.FC<OrderFormProps> = ({ mothersday, valentinesday, birthd
               {/* Mother's Day */}
               {values.mothersday ? (
                 <h5 className="flex items-center mt-6 mb-2 font-bold text-primary">
-                  <CheckCircleIcon className="w-5 h-5 mr-2" /> Mother&apos;s Day (Sunday, May 12, 2024)
+                  <CheckCircleIcon className="w-5 h-5 mr-2" /> Mother&apos;s Day (2025)
                 </h5>
               ) : null}
 
               {/* Valentine's Day */}
               {values.valentinesday ? (
                 <h5 className="flex items-center mt-6 mb-2 font-bold text-primary">
-                  <CheckCircleIcon className="w-5 h-5 mr-2" /> Valentine&apos;s Day (Friday, February 14, 2025)
+                  <CheckCircleIcon className="w-5 h-5 mr-2" /> Valentine&apos;s Day (2025)
                 </h5>
               ) : null}
 
@@ -318,7 +318,7 @@ const OrderForm: React.FC<OrderFormProps> = ({ mothersday, valentinesday, birthd
               message="We recommend keeping your message simple. Your sentiments will be included in all of your HERO deliveries. If you’re not sure what to say, not to worry! When we call you to confirm your BE HER HERO subscription, we’ll help you!"
             >
               {/* Mother's Day Note */}
-              {values.mothersday ? <Textarea label="Mother's Day" name="mothersdayNote" /> : null}
+              {values.mothersday ? <Textarea label="Mother's Day (2025)" name="mothersdayNote" /> : null}
 
               {/* Anniversary Note */}
               {values.anniversary ? <Textarea label="Anniversary" name="anniversaryNote" /> : null}
@@ -327,7 +327,7 @@ const OrderForm: React.FC<OrderFormProps> = ({ mothersday, valentinesday, birthd
               {values.birthday ? <Textarea label="Birthday" name="birthdayNote" /> : null}
 
               {/* Valentine's Day Note */}
-              {values.valentinesday ? <Textarea label="Valentine's Day" name="valentinesdayNote" /> : null}
+              {values.valentinesday ? <Textarea label="Valentine's Day (2025)" name="valentinesdayNote" /> : null}
 
               {/* Occasion #4 Note */}
               {values.occasion4 ? <Textarea label={values.occasion4Type || "Subscriber's Choice Occasion"} name="occasion4Note" /> : null}
